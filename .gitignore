@@ -1,0 +1,21 @@
+
+# RStudio local files
+.Rproj.user/
+  .Rhistory
+.RData
+.Ruserdata
+
+# Local credentials and environment settings
+.Renviron
+.env
+.env.*
+  *.pem
+*.key
+
+# Local database connection settings
+02_connection.R
+
+# Temporary files
+*.log
+*.tmp
+~$*
