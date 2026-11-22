@@ -89,7 +89,7 @@ The actual local connection file is excluded from Git version control. The provi
 
 ## Testing and Validation
 
-The local MVP has been tested with:
+The local agent has been tested with:
 
 - Six registered SQL-backed analytics tools
 - Natural-language questions requiring different tool selections
