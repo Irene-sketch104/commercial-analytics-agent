@@ -11,11 +11,46 @@ Instead of asking the LLM to calculate business metrics from memory, the Agent u
 
 The application provides a Shiny interface for natural-language questions about sales pipeline performance, customer conversion, segmentation, and data quality.
 
-## Architecture
 
-User → Shiny UI → ellmer / IBM Granite via Ollama → R Analytics Tools → SQL Server
+## System Architecture
 
-The LLM interprets the request and selects a registered tool. The tool executes a predefined SQL-backed analysis, and the result is returned to the LLM for explanation.
+The Agent uses R and ellmer to register and orchestrate analytical tools, while IBM Granite runs locally through Ollama for natural-language understanding and tool selection.
+
+Six predefined R analytics functions query SQL Server. The query results return through the R/ellmer workflow and are used to generate data-grounded answers displayed in Shiny.
+
+![Commercial Analytics AI Agent Architecture](screenshots/02_agent_architecture.png)
+
+## Demo
+
+### 1. Natural-Language Sales Analytics
+
+The Agent answers business questions through a Shiny interface using predefined SQL-backed R functions.
+
+![Overall lead conversion](screenshots/01_shiny_conversion.png)
+
+### 2. Business KPI Comparison
+
+For companies with 2,000+ employees:
+
+- Total accounts: 133
+- Total leads: 506
+- Converted leads: 112
+- Lead-weighted conversion rate: 22.13%
+- Equal-account-weighted conversion rate: 19.89%
+
+The 2.24-percentage-point difference demonstrates how weighting methods affect business KPI interpretation.
+
+![Conversion weighting comparison](screenshots/03_weighting_comparison.png)
+
+### 3. Tool Calling and Validation
+
+Integration tests demonstrate tool selection and execution for different natural-language business questions.
+
+![Tool calling integration tests](screenshots/04_tool_calling_evidence.png)
+
+Additional tests cover missing-value assessment and lead/account identifier integrity.
+
+![Data quality validation](screenshots/05_data_quality_validation.png)
 
 ## Core Capabilities
 
